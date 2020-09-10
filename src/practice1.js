@@ -1,13 +1,13 @@
-const parseData = (input) => {
+const parseData = ({data, column}) => {
     let output=[];
-    const columnKeys = input.column.map(item => item.name);
-    for(let data of input.data) {
-        let tmp={}
-        for(let i=0; i<data.length; i+=1){
-            tmp[columnKeys[i]]=data[i];
+    const columnKeys = column.map(item => item.name);
+    data.map(d => {
+        const row={};
+        for(let i=0; i<d.length; i+=1){
+            row[columnKeys[i]]=d[i];
         }
-        output.push(tmp);
-    }
+        output.push(row);
+    })
     return output;
 }
 export { parseData };
