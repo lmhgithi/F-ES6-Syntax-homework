@@ -1,9 +1,6 @@
 const parseData = (input) => {
-    const keys=[];
     let output=[];
-    input.column.map(item => (
-        keys.push(item.name)
-    ));
+    const keys = input.column.map(item => item.name);
     for(let data of input.data) {
         let tmp={}
         for(let i=0; i<data.length; i+=1){
